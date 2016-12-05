@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import App from './app.jsx';
 
-class Root extends Component {
-  render() {
-    return(
-      <div>
-        root component
-      </div>
-    );
-  }
-}
+const Root = ({ store }) => (
+  <Provider store={store}>
+    <Router history={hashHistory}>
+      <Route path="/" component={App} />
+    </Router>
+  </Provider>
+);
 
 export default Root;
